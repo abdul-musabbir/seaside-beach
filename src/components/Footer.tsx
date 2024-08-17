@@ -1,5 +1,5 @@
 import {NavLink} from "react-router-dom";
-import {Mail, MapPin} from "lucide-react";
+import {MailPlus, MapPin} from "lucide-react";
 
 export default function Footer(){
     return(
@@ -27,7 +27,7 @@ export default function Footer(){
 
                 <div className={'space-y-3 mt-4'}>
                     <h3 className={'text-[25px] font-bold text-white'}>Contact Us</h3>
-                    <p className={'flex gap-2 text-white'}><Mail/> <NavLink
+                    <p className={'flex gap-2 text-white'}><div><MailPlus className={'size-5'}/></div> <NavLink
                         to={'mailto:seasidebeachvacations@gmail.com'}>seasidebeachvacations@gmail.com</NavLink></p>
                     <div className={'text-white space-y-3'}>
                         <p className={'flex gap-2'}><MapPin/> 29 Farragut Ave, Seaside Park NJ 08752</p>
