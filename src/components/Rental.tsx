@@ -1,12 +1,11 @@
 import Slider from "../Swiper/Slider";
 import {MoveUpRight} from "lucide-react";
 import { useRef, useState} from "react";
-import cn from "../lib/utils.ts";
 import {Link} from "react-router-dom";
 
 export default function Rental() {
     const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0);
-    const swiperRef = useRef(null);
+    const swiperRef:any = useRef(null);
 
     const handleDivClick = (index:number) => {
         if (swiperRef.current && swiperRef.current.swiper) {
@@ -46,9 +45,7 @@ export default function Rental() {
                             <div className={'flex gap-5 md:absolute bottom-5 mt-8 md:mt-0'}>
                                 {[1, 2, 3, 4, 5].map((item, index) => (
                                     <div key={index} onClick={() => handleDivClick(index)}
-                                         className={cn('size-10 text-white bg-blue-300 flex items-center justify-center rounded-full cursor-pointer transition-all duration-300 ease-in hover:bg-blue-500 select-none', {
-                                             'bg-blue-500': index === activeSlideIndex
-                                         })}>
+                                         className={`size-10 text-white bg-blue-300 flex items-center justify-center rounded-full cursor-pointer transition-all duration-300 ease-in hover:bg-blue-500 select-none` + `${index === activeSlideIndex && 'bg-blue-500'}`}>
                                         <span>0{item}</span>
                                     </div>
                                 ))}
@@ -64,7 +61,7 @@ export default function Rental() {
     );
 }
 
-const datas: { title: string, to: string, price: string, location: string, des: string }[] = [
+const datas: {title: string,to: string,price: string,location: string,des: string }[] = [
     {
         title: 'Beach Escape',
         to: 'Beach Escape',

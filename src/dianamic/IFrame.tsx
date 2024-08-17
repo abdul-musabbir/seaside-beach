@@ -1,6 +1,4 @@
 import React from 'react';
-import cn from "../lib/utils"; // Assuming `cn` is a utility function for conditional class names
-
 interface IFrameProps {
     src: string;
     title: string;
@@ -21,7 +19,6 @@ const IFrame: React.FC<IFrameProps> = ({
                                            height = 422,
                                            frameBorder = 0,
                                            allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
-                                           referrerPolicy = 'strict-origin-when-cross-origin',
                                            allowFullScreen = true
                                        }) => {
     return (
@@ -32,8 +29,7 @@ const IFrame: React.FC<IFrameProps> = ({
             title={title}
             frameBorder={frameBorder.toString()} // `frameBorder` should be a string
             allow={allow}
-            className={cn(className)}
-            referrerPolicy={referrerPolicy}
+            className={className}
             allowFullScreen={allowFullScreen}
         ></iframe>
     );

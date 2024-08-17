@@ -1,6 +1,6 @@
-import {Mail, MapPin, PhoneCall} from "lucide-react";
+import {Mail, PhoneCall} from "lucide-react";
 import {NavLink} from "react-router-dom";
-import {useState} from "react";
+import {ChangeEvent, useState} from "react";
 import RentalNote from "./RentalNote.tsx";
 
 export default function Form(){
@@ -13,7 +13,7 @@ export default function Form(){
         message: ''
     });
 
-    const selectHandle = (e:any)=>{
+    const selectHandle = (e: ChangeEvent<HTMLSelectElement>)=>{
         setSelectData({
             ...selectData,
             selectField: e.target.value,

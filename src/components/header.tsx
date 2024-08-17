@@ -1,27 +1,38 @@
 import { NavLink, useLocation } from "react-router-dom";
-import {ArrowBigDown, ChevronDown, ChevronUp, Menu, X} from "lucide-react";
+import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import cn from "../lib/utils.ts";
 import SelectAllArrayData from "../data/selectAllArrayData.ts";
+
+interface DataItem {
+    price: number;
+    land: string;
+    location: string;
+    bed: number;
+    bath: number;
+    person: number;
+    url: string;
+}
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [drop, setDrop] = useState(false);  // Added drop state for the mobile menu
+    const [drop, setDrop] = useState(false);
+    const [showMenus, setShowMenus] = useState<boolean>(false);
     const ref = useRef<HTMLDivElement>(null);
-    const [showMenus, setShowMenus] = useState<boolean>(false)
-    const location = useLocation();  // Updated to use useLocation hook
+    const location = useLocation();
     const pathName = location.pathname;
-    const SelectAllData = SelectAllArrayData();
-    const copyArray = SelectAllData.map(item=> item.land);
-    const result = copyArray
-        .toString()
-        .trim()
-        .replace(/-/g, ' ')
-        .replace(/ {2,}/g, ' ')
-        .replace(/\s+/g, '-')
-        .toLowerCase()
-        .split(',')
-        .map(item => '/'+item);
+    const SelectAllData: DataItem[] = SelectAllArrayData();
+    const copyArray: string[] = SelectAllData.map(item => item.land);
+    const result: string[] = copyArray
+        .map(item =>
+            item
+                .trim()
+                .replace(/-/g, ' ')
+                .replace(/ {2,}/g, ' ')
+                .replace(/\s+/g, '-')
+                .toLowerCase()
+                .split(',')
+                .map(subItem => '/' + subItem)
+        ).flat();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -36,23 +47,14 @@ export default function Header() {
     }, []);
 
     return (
-        <header ref={ref} className={cn("h-16 sm:h-20 flex fixed top-0 left-0 right-0 z-[999] transition-all duration-300", {
-            'shadow-xl bg-white': isScrolled,
-        })}>
+        <header ref={ref} className={"h-16 sm:h-20 flex fixed top-0 left-0 right-0 z-[999] transition-all duration-300" + `${isScrolled&&'shadow-xl bg-white'}`}>
             <div className="flex w-11/12 mx-auto items-center justify-between">
                 <div>
-                    <NavLink to={'/'} className={cn("font-bold text-2xl text-white", {
-                        'text-black': isScrolled || result.includes(pathName),
-                        'text-white': !isScrolled && result.includes(!pathName),
-                    })}>
-                        Travellow
-                    </NavLink>
+                    <NavLink to={'/'} className={"font-bold text-2xl text-white"+`${isScrolled || result.includes(pathName) ? 'text-black' : 'text-white'}`}>Travellow</NavLink>
                 </div>
                 {/* Navigation for larger screens */}
                 <nav className="hidden sm:block">
-                    <div className={cn("flex space-x-8 text-lg font-bold text-white", {
-                        'text-black': isScrolled || result.includes(pathName),
-                    })}>
+                    <div className={"flex space-x-8 text-lg font-bold text-white"+`${isScrolled || result.includes(pathName)&&'text-black'}`}>
                         <NavLink to="/">Home</NavLink>
                         <NavLink className={'relative group'} to="/">Houses
 
@@ -71,17 +73,11 @@ export default function Header() {
                     </div>
                 </nav>
                 {/* Navigation for smaller screens */}
-                <nav className={cn('fixed top-20 left-0 w-full text-black sm:hidden transition-all duration-300', {
-                    'block z-50': drop,
-                    'hidden': !drop,
-                })}>
+                <nav className={'fixed top-20 left-0 w-full text-black sm:hidden transition-all duration-300'+ `${drop&&'block z-50'}`+`${!drop&&'hidden'}`}>
                     <div className="flex flex-col mx-auto w-4/5 rounded-2xl bg-white text-center gap-5 py-8 font-bold text-lg shadow-md">
                         <NavLink to="/" onClick={() => setDrop(false)}>Home</NavLink>
                         <NavLink to="#hotel-card" onClick={() => setShowMenus((prevState)=> !prevState)} className={'flex mx-auto items-center gap-2'}>Houses {showMenus ? <ChevronUp /> :<ChevronDown/>}</NavLink>
-                        <div className={cn('flex flex-col text-sm font-normal gap-2',{
-                            'block flex flex-col' : showMenus,
-                            'hidden': !showMenus
-                        })}>
+                        <div className={'flex flex-col text-sm font-normal gap-2'+ `${showMenus&&'block flex flex-col'}` + `${!showMenus&&'hidden'}`}>
                             <NavLink to={'/'}>hotel 1</NavLink>
                             <NavLink to={'/'}>hotel 1</NavLink>
                             <NavLink to={'/'}>hotel 1</NavLink>
@@ -94,9 +90,7 @@ export default function Header() {
                 </nav>
                 {/* Menu toggle button for smaller screens */}
                 <div className="sm:hidden">
-                    <button className={cn("text-lg flex text-white", {
-                        'text-black': isScrolled
-                    })} onClick={() => setDrop((prev) => !prev)}>
+                    <button className={"text-lg flex text-white" + `${isScrolled&&'text-black'}`} onClick={() => setDrop((prev) => !prev)}>
                         {drop ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
                 </div>

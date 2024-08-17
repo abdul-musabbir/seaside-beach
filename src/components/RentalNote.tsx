@@ -1,7 +1,3 @@
-import TickIcon from "../icons/TickIcon.tsx";
-import { useEffect, useRef } from "react";
-import {House, MapPin} from "lucide-react";
-
 export default function RentalNote() {
     return (
         <div className={'h-full'}>
@@ -13,21 +9,91 @@ export default function RentalNote() {
                     <div className="space-y-4 lg:space-y-5">
                         <div>
                             <ul className="space-y-2">
-                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]"><TickIcon
-                                    className="size-5 select-none"/> Key code entry.
+                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="12"
+                                        height="12"
+                                        viewBox="0 0 24 24"
+                                        className={''}
+                                    >
+                                        <g>
+                                            <path
+                                                d="M17.582 8.461a1.5 1.5 0 0 1-.043 2.121l-4.605 4.424c-.668.659-1.552.989-2.438.989s-1.774-.33-2.451-.991l-1.547-1.388a1.5 1.5 0 1 1 2.006-2.231l1.592 1.43c.237.23.555.232.746.042l4.62-4.438a1.499 1.499 0 0 1 2.121.042ZM24 12c0 6.617-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0s12 5.383 12 12Zm-3 0c0-4.962-4.037-9-9-9s-9 4.038-9 9 4.037 9 9 9 9-4.038 9-9Z"
+                                                fill="#000"
+                                            />
+                                        </g>
+                                    </svg>
+                                    Key code entry.
                                 </li>
-                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]"><TickIcon
-                                    className="size-5 select-none"/> All rentals are pet-friendly
+                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="12"
+                                        height="12"
+                                        viewBox="0 0 24 24"
+                                        className={''}
+                                    >
+                                        <g>
+                                            <path
+                                                d="M17.582 8.461a1.5 1.5 0 0 1-.043 2.121l-4.605 4.424c-.668.659-1.552.989-2.438.989s-1.774-.33-2.451-.991l-1.547-1.388a1.5 1.5 0 1 1 2.006-2.231l1.592 1.43c.237.23.555.232.746.042l4.62-4.438a1.499 1.499 0 0 1 2.121.042ZM24 12c0 6.617-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0s12 5.383 12 12Zm-3 0c0-4.962-4.037-9-9-9s-9 4.038-9 9 4.037 9 9 9 9-4.038 9-9Z"
+                                                fill="#000"
+                                            />
+                                        </g>
+                                    </svg>
+                                    All rentals are pet-friendly
                                 </li>
-                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]"><TickIcon
-                                    className="size-5 select-none"/> Beach badges not included with rentals.
+                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="12"
+                                        height="12"
+                                        viewBox="0 0 24 24"
+                                        className={''}
+                                    >
+                                        <g>
+                                            <path
+                                                d="M17.582 8.461a1.5 1.5 0 0 1-.043 2.121l-4.605 4.424c-.668.659-1.552.989-2.438.989s-1.774-.33-2.451-.991l-1.547-1.388a1.5 1.5 0 1 1 2.006-2.231l1.592 1.43c.237.23.555.232.746.042l4.62-4.438a1.499 1.499 0 0 1 2.121.042ZM24 12c0 6.617-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0s12 5.383 12 12Zm-3 0c0-4.962-4.037-9-9-9s-9 4.038-9 9 4.037 9 9 9 9-4.038 9-9Z"
+                                                fill="#000"
+                                            />
+                                        </g>
+                                    </svg>
+                                    Beach badges not included with rentals.
                                 </li>
-                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]"><TickIcon
-                                    className="size-5 select-none"/> $500 property damage security deposit for every
+                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="12"
+                                        height="12"
+                                        viewBox="0 0 24 24"
+                                        className={''}
+                                    >
+                                        <g>
+                                            <path
+                                                d="M17.582 8.461a1.5 1.5 0 0 1-.043 2.121l-4.605 4.424c-.668.659-1.552.989-2.438.989s-1.774-.33-2.451-.991l-1.547-1.388a1.5 1.5 0 1 1 2.006-2.231l1.592 1.43c.237.23.555.232.746.042l4.62-4.438a1.499 1.499 0 0 1 2.121.042ZM24 12c0 6.617-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0s12 5.383 12 12Zm-3 0c0-4.962-4.037-9-9-9s-9 4.038-9 9 4.037 9 9 9 9-4.038 9-9Z"
+                                                fill="#000"
+                                            />
+                                        </g>
+                                    </svg>
+                                    $500 property damage security deposit for every
                                     rental.
                                 </li>
-                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]"><TickIcon
-                                    className="size-5 select-none"/> All rentals have a cleaning fee and a utility fee
+                                <li className="flex gap-2 text-[18px] font-medium lg:text-[16px]">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="12"
+                                        height="12"
+                                        viewBox="0 0 24 24"
+                                        className={''}
+                                    >
+                                        <g>
+                                            <path
+                                                d="M17.582 8.461a1.5 1.5 0 0 1-.043 2.121l-4.605 4.424c-.668.659-1.552.989-2.438.989s-1.774-.33-2.451-.991l-1.547-1.388a1.5 1.5 0 1 1 2.006-2.231l1.592 1.43c.237.23.555.232.746.042l4.62-4.438a1.499 1.499 0 0 1 2.121.042ZM24 12c0 6.617-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0s12 5.383 12 12Zm-3 0c0-4.962-4.037-9-9-9s-9 4.038-9 9 4.037 9 9 9 9-4.038 9-9Z"
+                                                fill="#000"
+                                            />
+                                        </g>
+                                    </svg>
+                                    All rentals have a cleaning fee and a utility fee
                                 </li>
                             </ul>
                         </div>
@@ -44,8 +110,13 @@ export default function RentalNote() {
 
                     </div>
                     <div className="space-x-3">
-                        <button className="px-5 py-3 bg-blue-500 hover:bg-opacity-65 transition-all duration-300 text-white rounded-xl">Payment plan sample</button>
-                        <button className="px-5 py-3 bg-black hover:bg-opacity-65  transition-all duration-300 text-white rounded-xl">Lease sample</button>
+                        <button
+                            className="px-5 py-3 bg-blue-500 hover:bg-opacity-65 transition-all duration-300 text-white rounded-xl">Payment
+                            plan sample
+                        </button>
+                        <button
+                            className="px-5 py-3 bg-black hover:bg-opacity-65  transition-all duration-300 text-white rounded-xl">Lease
+                            sample</button>
                     </div>
                 </div>
             </div>

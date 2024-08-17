@@ -1,6 +1,6 @@
 import HotelImage from '../../public/hotel-1.jpg';
 
-export default function SignleData(slug: string | undefined) {
+export default function SignleData(slug: string | undefined): Promise<unknown> {
     return new Promise((resolve, reject) => {
         switch (slug) {
             case 'beach-escape':

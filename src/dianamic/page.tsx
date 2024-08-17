@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {MapPin, Video} from "lucide-react";
+import { MapPin, Video } from "lucide-react";
 import SignleData from "../utils/sing-data";
 import DynamicImageSlider from "./dynamic-page-slider";
 import ShowVideoPopUp from "./ShowVideoPopUp.tsx";
@@ -37,11 +37,12 @@ export default function SinglePage() {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [showPopUp, setShowPopUp] = useState<boolean>(false);
+
     useEffect(() => {
         async function fetchData() {
             setLoading(true);
             try {
-                const data: Data = await SignleData(id);
+                const data:any = await SignleData(id);
                 setPost(data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -49,6 +50,7 @@ export default function SinglePage() {
             }
             setLoading(false);
         }
+
         fetchData();
     }, [id]);
 
@@ -63,7 +65,6 @@ export default function SinglePage() {
     if (!post) {
         return <div>No data found</div>;
     }
-
 
     return (
         <div>

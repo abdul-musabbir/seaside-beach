@@ -1,5 +1,3 @@
-import cn from "../lib/utils.ts";
-
 export default function RentalInformation() {
     return(
         <div className={'mb-[100px] md:relative'}>
@@ -9,14 +7,12 @@ export default function RentalInformation() {
                     <p className={'md:w-[500px] md:font-semibold md:text-[15px] md:text-gray-400'}>Two to three day rentals available before june 29th. June 29th to Labor Day weekend are weekly rentals that run Saturday. Prom groups welcomed. Contact us for prom pricing and availability</p>
                 </div>
                 <div className={''}>
-                    <div className={cn('')}>
+                    <div className={''}>
                         <div className={'flex flex-col gap-5 md:grid md:grid-cols-2 md:z-30 md:mt-20'}>
                             {
                                 data.map((item, index) => (
                                     <div key={index}
-                                         className={cn('bg-white shadow-xl rounded-xl p-5 flex flex-col gap-5 border', {
-                                             'col-span-full py-10 px-8': index === 0,
-                                         })}>
+                                         className={'bg-white shadow-xl rounded-xl p-5 flex flex-col gap-5 border'+`${index === 0&& 'col-span-full py-10 px-8'}`}>
                                         <h3 className={'text-xl font-bold md:text-2xl'}>{item?.title}</h3>
                                         <p className={'text-gray-500 md:text-[15px]'}>{item?.des}</p>
                                     </div>

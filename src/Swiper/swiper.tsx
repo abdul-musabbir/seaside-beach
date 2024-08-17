@@ -1,4 +1,4 @@
-import {Bath, Bed, LucidePersonStanding, SquareMousePointer} from "lucide-react";
+import {Bath, Bed, LucidePersonStanding} from "lucide-react";
 import {NavLink} from "react-router-dom";
 import SelectAllArrayData from "../data/selectAllArrayData.ts";
 
