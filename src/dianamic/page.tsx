@@ -10,6 +10,7 @@ import ImageGellary from "./ImageGellary.tsx";
 import Form from "../components/Form.tsx";
 import Footer from "../components/Footer.tsx";
 import Header from "../components/header.tsx";
+import MapEmbed from "../components/SideMap.tsx";
 
 interface Feature {
     icon: string;
@@ -141,8 +142,10 @@ export default function SinglePage() {
             <Form />
 
 
+
             {showPopUp && <ShowVideoPopUp onClose={()=> setShowPopUp(false)}/>}
         </div>
+            <MapEmbed />
             <Footer />
         </div>
     );
