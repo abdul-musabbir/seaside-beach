@@ -33,7 +33,6 @@ export default function Header() {
                 .split(',')
                 .map(subItem => '/' + subItem)
         ).flat();
-
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 0);
@@ -50,11 +49,16 @@ export default function Header() {
         <header ref={ref} className={"h-16 sm:h-20 flex fixed top-0 left-0 right-0 z-[999] transition-all duration-300" + `${isScrolled&&'shadow-xl bg-white'}`}>
             <div className="flex w-11/12 mx-auto items-center justify-between">
                 <div>
-                    <NavLink to={'/'} className={"font-bold text-2xl text-white"+`${isScrolled || result.includes(pathName) ? 'text-black' : 'text-white'}`}>Travellow</NavLink>
+                    <NavLink
+                        to={'/'}
+                        className={`font-bold text-2xl ${isScrolled || result.includes(pathName) ? 'text-black' : 'text-white'}`}
+                    >
+                        Travellow
+                    </NavLink>
                 </div>
                 {/* Navigation for larger screens */}
                 <nav className="hidden sm:block">
-                    <div className={"flex space-x-8 text-lg font-bold text-white"+`${isScrolled || result.includes(pathName)&&'text-black'}`}>
+                    <div className={`flex space-x-8 text-lg font-bold ${isScrolled || result.includes(pathName) ? 'text-black' : 'text-white'}`}>
                         <NavLink to="/">Home</NavLink>
                         <NavLink className={'relative group'} to="/">Houses
 
