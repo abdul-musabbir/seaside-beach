@@ -40,6 +40,7 @@ export default function SinglePage() {
     const [showPopUp, setShowPopUp] = useState<boolean>(false);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         async function fetchData() {
             setLoading(true);
             try {
